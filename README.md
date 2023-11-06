@@ -27,19 +27,18 @@ predictions = batch_predict(images)
 A list of RGB images, each represented as a NumPy array.
 #### Output:
 A list of predictions, with each corresponding to the class_1 probability of the image being of good brightness quality.
-Usage Example:
-Refer to the example.py for a detailed implementation sample.
 ### Usage Example
 For a implementation sample, refer to _example.py_ in the repository.
 
 
-## Files in repo:
-1) ./example_data - class_0/1 .jpg images for tests;
-2) prediction.json - predicition example;
-3) ./models - mediapipe and logreg model (pickle);
-4) mputils.py - mediapipe utils;
-5) terminal_classifier - code for terminal classification;
-6) example.py - example of using bath_prediciton;
+## Files in the Repository:
+1. `./example_data` - Contains `.jpg` images for testing, labeled as class_0 or class_1.
+2. `prediction.json` - An example of prediction output.
+3. `./models` - Directory with the MediaPipe and Logistic Regression model (`logreg`) saved as a pickle file.
+4. `mputils.py` - Contains utilities for working with MediaPipe.
+5. `terminal_classifier.py` - The script for running classification from the terminal.
+6. `example.py` - Provides an example of using `batch_prediction` function.
+
 
 
 
