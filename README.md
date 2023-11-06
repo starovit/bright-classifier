@@ -15,7 +15,6 @@ python terminal_classifier.py example_data/
 #### Output
 - `predictions.json`: JSON file will contain the classification probabilities for each image processed.
 
-
 ### 2. Integration with External Code
 You can incorporate the `batch_predict` function from `terminal_classifier.py` into your own codebase.
 ```python
