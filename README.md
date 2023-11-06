@@ -3,7 +3,7 @@ Media-pipe + LogisticRegression image brightness quality classification
 
 ## Usage Cases
 **1. Terminal run example:** <br/>
-_python terminal_classifier.py example_data/_ <br/>
+_python terminal_classifier.py example_data/_ <br/><br/>
 Description: example_data/ - path to images <br/>
 Output: prediction.json file <br/>
 
