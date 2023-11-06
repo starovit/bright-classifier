@@ -26,10 +26,11 @@ The `bright-classifier` is a tool designed to classify images based on the brigh
 Run the classifier directly from the terminal by specifying the path to the images.
 ```bash
 python terminal_classifier.py example_data/
+```
 
-### Description
+**Description**
 - `example_data/`: This is the path to the directory that contains the images which will be classified.
-### Output
+**Output**
 - `predictions.json`: This JSON file will contain the classification probabilities for each image processed.
 
 ## 2. Integration with External Code
@@ -39,6 +40,7 @@ You can incorporate the `batch_predict` function from `terminal_classifier.py` i
 from terminal_classifier import batch_predict
 # Assuming `images` is a list of RGB images represented as NumPy arrays
 predictions = batch_predict(images)
+```
 
 Input:
 A list of RGB images, each represented as a NumPy array.
