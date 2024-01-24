@@ -8,10 +8,11 @@ The `bright-classifier` is a tool designed to classify images based on the brigh
 ### 1. Terminal Execution
 Run the classifier directly from the terminal by specifying the path to the images.
 ```bash
-python terminal_classifier.py example_data/
+python terminal_classifier.py example_data/ model
 ```
 #### Description
 - `example_data/`: path to the directory that with images for classification
+- `model`: type of model - logreg on nn
 #### Output
 - `predictions.json`: JSON file will contain the classification probabilities for each image processed.
 
