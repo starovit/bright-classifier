@@ -39,7 +39,6 @@ class FaceDetector():
         )
         self.detector = vision.FaceLandmarker.create_from_options(options)
 
-
     def detect(self, rgb_image):
         mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=rgb_image)
         detection_result = self.detector.detect(mp_image)
@@ -80,8 +79,14 @@ class FaceDetector():
         return areas_mask, areas_center, areas_histogram
     
 
-    def image_pipeline(self, rgb_image):
-        bright_image = cv2.cvtColor(rgb_image, cv2.COLOR_RGB2HSV)[:,:,-1]
+    def image_pipeline(self, rgb_image, convert_to="hsv"):
+        if convert_to == "hsv":
+            bright_image = cv2.cvtColor(rgb_image, cv2.COLOR_RGB2HSV)[:,:,-1]
+        elif convert_to == "gray":
+            bright_image = cv2.cvtColor(rgb_image, cv2.COLOR_RGB2GRAY)
+        else:
+            raise ValueError("Invalid conversion type. Choose 'hsv' or 'gray'.")
+            
         landmarks = self.detect(rgb_image)
         abs_coords = self.landmarks_to_coordinates(landmarks, bright_image.shape)
         areas_mask, areas_center, areas_histogram = \
@@ -96,7 +101,10 @@ class FaceDetector():
         return rgb_image
 
 
-def calc_hist(array, bin_num=10):
+
+
+
+def calc_hist(array, bin_step=10):
     """
     Convert a 2D NumPy array to a normalized histogram.
 
@@ -110,7 +118,7 @@ def calc_hist(array, bin_num=10):
 
     flat = array.flatten()
     flat = flat[flat!=0]
-    hist, bin_edges = np.histogram(flat, bins=range(0,260,bin_num))
+    hist, bin_edges = np.histogram(flat, bins=range(0, 260, bin_step))
     hist_norm = hist/hist.sum()
     hist_norm = hist_norm.round(3)
     return hist_norm
